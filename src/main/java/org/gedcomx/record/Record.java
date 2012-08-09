@@ -18,10 +18,12 @@ package org.gedcomx.record;
 import org.codehaus.enunciate.json.JsonName;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.map.annotate.JsonTypeIdResolver;
 import org.gedcomx.common.*;
-import org.gedcomx.rt.*;
+import org.gedcomx.rt.CommonModels;
+import org.gedcomx.rt.RDFDomain;
+import org.gedcomx.rt.RDFRange;
+import org.gedcomx.rt.RDFSubPropertyOf;
+import org.gedcomx.rt.json.JsonElementWrapper;
 import org.gedcomx.types.RecordType;
 import org.gedcomx.types.TypeReference;
 
@@ -29,13 +31,12 @@ import javax.xml.XMLConstants;
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
+
 /**
  * A record.
  */
 @XmlRootElement
 @JsonElementWrapper ( name = "records" )
-@JsonTypeInfo ( use =JsonTypeInfo.Id.CUSTOM, property = XmlTypeIdResolver.TYPE_PROPERTY_NAME)
-@JsonTypeIdResolver (XmlTypeIdResolver.class)
 @XmlType ( name = "Record", propOrder = { "persistentId", "identifiers", "sources", "type", "personas", "relationships", "facts" } )
 public class Record extends GenealogicalResource implements PersistentIdentifiable, HasFacts {
 

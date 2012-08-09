@@ -17,10 +17,7 @@ package org.gedcomx.record;
 
 import org.codehaus.enunciate.json.JsonName;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.map.annotate.JsonTypeIdResolver;
 import org.gedcomx.common.*;
-import org.gedcomx.rt.XmlTypeIdResolver;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.annotation.*;
@@ -28,11 +25,10 @@ import org.gedcomx.common.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * A persona is the set of data about a person bounded by a single record.
  */
-@JsonTypeInfo ( use =JsonTypeInfo.Id.CUSTOM, property = XmlTypeIdResolver.TYPE_PROPERTY_NAME)
-@JsonTypeIdResolver (XmlTypeIdResolver.class)
 @XmlType ( name = "Persona", propOrder = { "persistentId", "identifiers", "gender", "age", "names", "facts" } )
 public class Persona extends GenealogicalResource implements PersistentIdentifiable, HasFacts {
 

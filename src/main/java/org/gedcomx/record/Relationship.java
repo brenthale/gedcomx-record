@@ -18,15 +18,12 @@ package org.gedcomx.record;
 import org.codehaus.enunciate.json.JsonName;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.map.annotate.JsonTypeIdResolver;
-import org.gedcomx.common.GenealogicalResource;
+import org.gedcomx.record.GenealogicalResource;
 import org.gedcomx.common.ResourceReference;
 import org.gedcomx.common.URI;
 import org.gedcomx.rt.CommonModels;
 import org.gedcomx.rt.RDFRange;
 import org.gedcomx.rt.RDFSubPropertyOf;
-import org.gedcomx.rt.XmlTypeIdResolver;
 import org.gedcomx.types.RelationshipType;
 import org.gedcomx.types.TypeReference;
 
@@ -36,11 +33,10 @@ import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * A recorded relationship.
  */
-@JsonTypeInfo ( use =JsonTypeInfo.Id.CUSTOM, property = XmlTypeIdResolver.TYPE_PROPERTY_NAME)
-@JsonTypeIdResolver (XmlTypeIdResolver.class)
 @XmlType ( name = "Relationship", propOrder = { "type", "persona1", "persona2", "facts" } )
 public class Relationship extends GenealogicalResource implements HasFacts {
 
