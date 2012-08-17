@@ -183,12 +183,6 @@
   <dependencies>
     <dependency>
       <groupId>org.gedcomx</groupId>
-      <artifactId>gedcomx-common</artifactId>
-      <version>${gedcomx.core.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.gedcomx</groupId>
       <artifactId>gedcomx-rt-support</artifactId>
       <version>${gedcomx.core.version}</version>
     </dependency>
