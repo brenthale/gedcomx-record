@@ -17,15 +17,11 @@ package org.gedcomx.record;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.map.annotate.JsonTypeIdResolver;
-import org.gedcomx.common.URI;
+import org.gedcomx.record.types.FactType;
+import org.gedcomx.record.types.TypeReference;
 import org.gedcomx.rt.CommonModels;
 import org.gedcomx.rt.RDFSubClassOf;
 import org.gedcomx.rt.RDFSubPropertyOf;
-import org.gedcomx.rt.XmlTypeIdResolver;
-import org.gedcomx.types.FactType;
-import org.gedcomx.types.TypeReference;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -35,8 +31,6 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * A recorded fact.
  */
-@JsonTypeInfo ( use =JsonTypeInfo.Id.CUSTOM, property = XmlTypeIdResolver.TYPE_PROPERTY_NAME)
-@JsonTypeIdResolver (XmlTypeIdResolver.class)
 @XmlType( name = "Fact", propOrder = { "type", "date", "place" } )
 @RDFSubClassOf ( CommonModels.DUBLIN_CORE_TYPE_NAMESPACE + "Event" )
 public class Fact extends Field {
@@ -70,13 +64,13 @@ public class Fact extends Field {
   }
 
   /**
-   * The enum referencing the known type of the fact, or {@link org.gedcomx.types.FactType#OTHER} if not known.
+   * The enum referencing the known type of the fact, or {@link org.gedcomx.record.types.FactType#OTHER} if not known.
    *
-   * @return The enum referencing the known type of the fact, or {@link org.gedcomx.types.FactType#OTHER} if not known.
+   * @return The enum referencing the known type of the fact, or {@link org.gedcomx.record.types.FactType#OTHER} if not known.
    */
   @XmlTransient
   @JsonIgnore
-  public org.gedcomx.types.FactType getKnownType() {
+  public org.gedcomx.record.types.FactType getKnownType() {
     return this.type == null ? null : FactType.fromQNameURI(this.type.getType());
   }
 
@@ -86,7 +80,7 @@ public class Fact extends Field {
    * @param knownType the fact type.
    */
   @JsonIgnore
-  public void setKnownType(org.gedcomx.types.FactType knownType) {
+  public void setKnownType(org.gedcomx.record.types.FactType knownType) {
     this.type = knownType == null ? null : new TypeReference<FactType>(knownType);
   }
 

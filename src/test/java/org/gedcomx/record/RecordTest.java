@@ -1,13 +1,8 @@
 package org.gedcomx.record;
 
-import org.gedcomx.common.Attribution;
-import org.gedcomx.common.AlternateId;
-import org.gedcomx.common.FormalValue;
-import org.gedcomx.common.ResourceReference;
-import org.gedcomx.types.*;
+import org.gedcomx.record.types.*;
 import org.testng.annotations.Test;
 
-import org.gedcomx.common.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

@@ -17,13 +17,9 @@ package org.gedcomx.record;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.map.annotate.JsonTypeIdResolver;
-import org.gedcomx.common.URI;
+import org.gedcomx.record.types.DatePartType;
+import org.gedcomx.record.types.TypeReference;
 import org.gedcomx.rt.CommonModels;
-import org.gedcomx.rt.XmlTypeIdResolver;
-import org.gedcomx.types.DatePartType;
-import org.gedcomx.types.TypeReference;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -32,8 +28,6 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * A date part field.
  */
-@JsonTypeInfo ( use =JsonTypeInfo.Id.CUSTOM, property = XmlTypeIdResolver.TYPE_PROPERTY_NAME)
-@JsonTypeIdResolver (XmlTypeIdResolver.class)
 @XmlType ( name = "DatePart" )
 public class DatePart extends Field {
 
@@ -63,9 +57,9 @@ public class DatePart extends Field {
   }
 
   /**
-   * The enum referencing the known type of the date part, or {@link org.gedcomx.types.DatePartType#OTHER} if not known.
+   * The enum referencing the known type of the date part, or {@link org.gedcomx.record.types.DatePartType#OTHER} if not known.
    *
-   * @return The enum referencing the known type of the date part, or {@link org.gedcomx.types.DatePartType#OTHER} if not known.
+   * @return The enum referencing the known type of the date part, or {@link org.gedcomx.record.types.DatePartType#OTHER} if not known.
    */
   @XmlTransient
   @JsonIgnore

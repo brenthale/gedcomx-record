@@ -17,20 +17,14 @@ package org.gedcomx.record;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.map.annotate.JsonTypeIdResolver;
-import org.gedcomx.common.URI;
+import org.gedcomx.record.types.PlacePartType;
+import org.gedcomx.record.types.TypeReference;
 import org.gedcomx.rt.CommonModels;
-import org.gedcomx.rt.XmlTypeIdResolver;
-import org.gedcomx.types.PlacePartType;
-import org.gedcomx.types.TypeReference;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-@JsonTypeInfo ( use =JsonTypeInfo.Id.CUSTOM, property = XmlTypeIdResolver.TYPE_PROPERTY_NAME)
-@JsonTypeIdResolver (XmlTypeIdResolver.class)
 @XmlType ( name = "PlacePart" )
 public class PlacePart extends Field {
 
@@ -60,9 +54,9 @@ public class PlacePart extends Field {
   }
 
   /**
-   * The enum referencing the known type of the place part, or {@link org.gedcomx.types.PlacePartType#OTHER} if not known.
+   * The enum referencing the known type of the place part, or {@link org.gedcomx.record.types.PlacePartType#OTHER} if not known.
    *
-   * @return The enum referencing the known type of the place part, or {@link org.gedcomx.types.PlacePartType#OTHER} if not known.
+   * @return The enum referencing the known type of the place part, or {@link org.gedcomx.record.types.PlacePartType#OTHER} if not known.
    */
   @XmlTransient
   @JsonIgnore

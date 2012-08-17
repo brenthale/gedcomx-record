@@ -18,11 +18,8 @@ package org.gedcomx.record;
 import org.codehaus.enunciate.ClientName;
 import org.codehaus.enunciate.json.JsonName;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.map.annotate.JsonTypeIdResolver;
-import org.gedcomx.rt.RDFSubClassOf;
-import org.gedcomx.rt.XmlTypeIdResolver;
 import org.gedcomx.rt.CommonModels;
+import org.gedcomx.rt.RDFSubClassOf;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
@@ -32,8 +29,6 @@ import java.util.List;
  * A date field.
  */
 @ClientName("DateInfo")
-@JsonTypeInfo ( use =JsonTypeInfo.Id.CUSTOM, property = XmlTypeIdResolver.TYPE_PROPERTY_NAME)
-@JsonTypeIdResolver (XmlTypeIdResolver.class)
 @XmlType ( name = "Date" )
 @RDFSubClassOf ( CommonModels.DUBLIN_CORE_NAMESPACE + "PeriodOfTime" )
 public class Date extends Field implements Partitionable<DatePart> {

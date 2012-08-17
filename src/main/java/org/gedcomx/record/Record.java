@@ -18,12 +18,13 @@ package org.gedcomx.record;
 import org.codehaus.enunciate.json.JsonName;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.map.annotate.JsonTypeIdResolver;
-import org.gedcomx.common.*;
-import org.gedcomx.rt.*;
-import org.gedcomx.types.RecordType;
-import org.gedcomx.types.TypeReference;
+import org.gedcomx.record.types.RecordType;
+import org.gedcomx.record.types.TypeReference;
+import org.gedcomx.rt.CommonModels;
+import org.gedcomx.rt.RDFDomain;
+import org.gedcomx.rt.RDFRange;
+import org.gedcomx.rt.RDFSubPropertyOf;
+import org.gedcomx.rt.json.JsonElementWrapper;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.annotation.*;
@@ -34,8 +35,6 @@ import java.util.List;
  */
 @XmlRootElement
 @JsonElementWrapper ( name = "records" )
-@JsonTypeInfo ( use =JsonTypeInfo.Id.CUSTOM, property = XmlTypeIdResolver.TYPE_PROPERTY_NAME)
-@JsonTypeIdResolver (XmlTypeIdResolver.class)
 @XmlType ( name = "Record", propOrder = { "persistentId", "alternateIds", "sources", "type", "personas", "relationships", "facts" } )
 public class Record extends GenealogicalResource implements PersistentIdentifiable, HasFacts {
 
@@ -139,9 +138,9 @@ public class Record extends GenealogicalResource implements PersistentIdentifiab
   }
 
   /**
-   * The enum referencing the known type of the record, or {@link org.gedcomx.types.RecordType#OTHER} if not known.
+   * The enum referencing the known type of the record, or {@link org.gedcomx.record.types.RecordType#OTHER} if not known.
    * 
-   * @return The enum referencing the known type of the record, or {@link org.gedcomx.types.RecordType#OTHER} if not known.
+   * @return The enum referencing the known type of the record, or {@link org.gedcomx.record.types.RecordType#OTHER} if not known.
    */
   @XmlTransient
   @JsonIgnore
@@ -150,9 +149,9 @@ public class Record extends GenealogicalResource implements PersistentIdentifiab
   }
 
   /**
-   * The enum referencing the known type of the record, or {@link org.gedcomx.types.RecordType#OTHER} if not known.
+   * The enum referencing the known type of the record, or {@link org.gedcomx.record.types.RecordType#OTHER} if not known.
    * 
-   * @param knownType The enum referencing the known type of the record, or {@link org.gedcomx.types.RecordType#OTHER} if not known.
+   * @param knownType The enum referencing the known type of the record, or {@link org.gedcomx.record.types.RecordType#OTHER} if not known.
    */
   @JsonIgnore
   public void setKnownType(RecordType knownType) {

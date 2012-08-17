@@ -1,5 +1,5 @@
 /**
- * Copyright 2011 Intellectual Reserve, Inc.
+ * Copyright 2011-2012 Intellectual Reserve, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,27 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.gedcomx.record;
-
-import org.codehaus.jackson.annotate.JsonTypeInfo;
-import org.codehaus.jackson.map.annotate.JsonTypeIdResolver;
-import org.gedcomx.common.Attribution;
-import org.gedcomx.common.FormalValue;
-import org.gedcomx.rt.XmlTypeIdResolver;
 
 import javax.xml.bind.annotation.XmlType;
 
 /**
  * A value of a field.
  */
-@JsonTypeInfo( use =JsonTypeInfo.Id.CUSTOM, property = XmlTypeIdResolver.TYPE_PROPERTY_NAME)
-@JsonTypeIdResolver(XmlTypeIdResolver.class)
 @XmlType( name = "FieldValue", propOrder = {"text", "formal", "attribution" } )
-public final class FieldValue implements org.gedcomx.common.Attributable {
+public final class FieldValue implements Attributable {
   private String text;
   private FormalValue formal;
-  private org.gedcomx.common.Attribution attribution;
+  private Attribution attribution;
 
   /**
    * Text directly extracted from the record field. What you see is what you get, including misspellings and other errors.

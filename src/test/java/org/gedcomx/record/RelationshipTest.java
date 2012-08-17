@@ -2,12 +2,9 @@ package org.gedcomx.record;
 
 import org.codehaus.jackson.node.ObjectNode;
 import org.gedcomx.rt.CommonModels;
-import org.gedcomx.types.RelationshipType;
-import org.gedcomx.types.TypeReference;
+import org.gedcomx.record.types.RelationshipType;
 import org.testng.annotations.Test;
 import org.w3c.dom.Document;
-
-import org.gedcomx.common.URI;
 
 import static org.gedcomx.rt.SerializationUtil.toJsonNode;
 import static org.gedcomx.rt.SerializationUtil.toXmlDom;

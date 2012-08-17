@@ -33,8 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
     description = "The record model contains the objects necessary for modeling genealogical record data.",
     version = "v1",
     xmlMediaType = RecordModel.GEDCOMX_RECORD_V1_XML_MEDIA_TYPE,
-    jsonMediaType = RecordModel.GEDCOMX_RECORD_V1_JSON_MEDIA_TYPE,
-    definesRDFSchema = true
+    jsonMediaType = RecordModel.GEDCOMX_RECORD_V1_JSON_MEDIA_TYPE
   )
 } )
 public class RecordModel {

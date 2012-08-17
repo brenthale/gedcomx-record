@@ -15,13 +15,11 @@
  */
 package org.gedcomx.record;
 
-import org.gedcomx.common.AlternateId;
 import org.gedcomx.rt.CommonModels;
 import org.gedcomx.rt.RDFDomain;
 import org.gedcomx.rt.RDFSubPropertyOf;
 
 import javax.xml.bind.annotation.XmlType;
-import org.gedcomx.common.URI;
 import java.util.List;
 
 /**
